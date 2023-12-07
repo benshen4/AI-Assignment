@@ -1,0 +1,249 @@
+﻿title: Awake
+tags:
+---
+<<declare $numberOfStops = "" as string>>
+<<declare $strategySelected = false>>
+<<declare $tyreChoice1 = "" as string>>
+<<declare $tryeChoice2 = "" as string>>
+<<declare $tryeChoice3 = "" as string>>
+<<declare $tyreNumber = "" as string>>
+
+
+//We can have a 1st NPC, which tells you to go to 2nd NPC to pick strategy
+//Strategy guy should say to come back and see me to get started, after picking strategy
+//In the mean time, player can interact with spectators
+
+===
+
+
+title:Strategy
+tags:
+---
+
+
+<<if $strategySelected is false>>
+
+It's time to choose are strategy! Are you thinking of a 1 stop or a 2 stop? #line:02b8d44 
+
+-> A one stop sounds good!  #line:090b89c 
+    Sounds good, what trye should we start on? #line:0900c4d 
+    <<set $numberOfStops to "1">>
+    -> Soft #line:0c1ee2b 
+        <<set $tyreChoice1 to "softs">>
+        Good choice, and what should we finish on? #line:07e1a55 
+        -> Medium #line:0369d6e 
+            Got it! #line:0c2ca96 
+            <<set $tyreChoice2 to "mediums">>
+        -> Hard #line:06aa8b5 
+            Good call. #line:0f94c8e 
+            <<set $tyreChoice2 to "hards">>
+    -> Medium #line:090eeb3 
+        <<set $tyreChoice1 to "mediums">>
+        Good choice, and what should we finish on? #line:0304294 
+        -> Soft #line:0b0c8d1 
+            Got it! #line:0121f19 
+            <<set $tyreChoice2 to "softs">>
+        -> Hard #line:001350a 
+            Good call. #line:0152d21 
+            <<set $tyreChoice2 to "hards">>
+    -> Hard #line:01ff3f8 
+        <<set $tyreChoice1 to "hards">>
+        Good choice, and what should we finish on? #line:0c156e8 
+        -> Soft #line:05c6d54 
+            Got it! #line:0b7fc76 
+            <<set $tyreChoice2 to "softs">>
+        -> Medium #line:0298866 
+            Good call. #line:0f70b04 
+            <<set $tyreChoice2 to "mediums">>
+-> Let's try a two stop!  #line:0f45df0 
+    Sure, why not? What should we start on? #line:00edeee 
+    <<set $numberOfStops to "2">>
+    -> Soft #line:048087d 
+        <<set $tyreChoice1 to "softs">>
+        Good choice. What about the second stint? #line:03a7b9d 
+        -> Soft #line:06a02a3 
+            Sure! #line:0ca3c2e 
+            <<set $tyreChoice2 to "softs">>
+            And the final stint? #line:0dfc441 
+            -> Medium #line:0e7ba63 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:0e30705 
+            -> Hard #line:00e30a8 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:06681f9 
+        -> Medium #line:0722644 
+            Okay! #line:0258087 
+            <<set $tyreChoice2 to "mediums">>
+            And the final stint? #line:00b201d 
+            -> Soft #line:037ec56 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:0faa2ff 
+            -> Medium #line:0ae7c2b 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:03f2b39 
+            -> Hard #line:0abc235 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:022634b 
+        -> Hard #line:0d62b68 
+            Good call. #line:08847cc 
+            <<set $tyreChoice2 to "hards">>
+            And the final stint? #line:0dbe690 
+            -> Soft #line:0122e1a 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:0f93a84 
+            -> Medium #line:0dfd07c 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:0750539 
+            -> Hard #line:01e5ab0 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:03c5007 
+    -> Medium #line:028c29c 
+        <<set $tyreChoice1 to "mediums">>
+        Good choice. What about the second stint? #line:0cd3e7d 
+        -> Soft #line:0c4a0ee 
+            Sure! #line:0611b80 
+            <<set $tyreChoice2 to "softs">>
+            And the final stint? #line:0549e2e 
+            -> Soft #line:0372f54 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:081d9ae 
+            -> Medium #line:04803cf 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:087728e 
+            -> Hard #line:01417b2 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:06c6140 
+        -> Medium #line:0e30655 
+            Okay! #line:082ee52 
+            <<set $tyreChoice2 to "mediums">>
+            And the final stint? #line:0164589 
+            -> Soft #line:082be0a 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:0c9c09b 
+            -> Hard #line:03ea28d 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:0ec9e91 
+        -> Hard #line:0f614ec 
+            Good call. #line:0dd40ca 
+            <<set $tyreChoice2 to "hards">>
+            And the final stint? #line:02550f9 
+            -> Soft #line:012dabc 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:01d421b 
+            -> Medium #line:00c3a40 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:007251a 
+            -> Hard #line:020df9c 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:06c1624 
+    -> Hard #line:032f85e 
+        <<set $tyreChoice1 to "hards">>
+        Good choice. What about the second stint? #line:035da63 
+        -> Soft #line:0414119 
+            Sure! #line:08a3227 
+            <<set $tyreChoice2 to "softs">>
+            And the final stint? #line:05536f4 
+            -> Soft #line:0c16990 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:0ab6a5c 
+            -> Medium #line:0ba4469 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:040f22b 
+            -> Hard #line:0a1e10b 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:0110ac4 
+        -> Medium #line:0d0e259 
+            Okay! #line:0d3f0c9 
+            <<set $tyreChoice2 to "mediums">>
+            And the final stint? #line:0b612a8 
+            -> Soft #line:0b29f2f 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:027099d 
+            -> Medium #line:02b1386 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:03f60f5 
+            -> Hard #line:03f5cf5 
+                <<set $tryeChoice3 to "hards">>
+                Got it. #line:0533d15 
+        -> Hard #line:0720243 
+            Good call. #line:0592885 
+            <<set $tyreChoice2 to "hards">>
+            And the final stint? #line:0486d7e 
+            -> Soft #line:0ba97f6 
+                <<set $tryeChoice3 to "softs">>
+                Got it. #line:0f331ea 
+            -> Medium #line:07ef04d 
+                <<set $tryeChoice3 to "mediums">>
+                Got it. #line:04119e5 
+
+    
+
+
+<<set $strategySelected to true>>
+
+<<elseif $strategySelected is true>>
+
+
+    <<if $numberOfStops is  "1">>
+    The current strategy is a 1 stop race, starting with {$tyreChoice1} and finishing with {$tyreChoice2}. #line:016ff0d 
+     Do you want to make changes? #line:015e7df 
+    -> Yes #line:0affc61 
+       <<set $strategySelected to false>>
+       <<jump Strategy>>
+    -> No #line:0b866ad 
+        Are you ready to start the race? #line:0d08c8b 
+        -> No #line:0ac50aa 
+            No problem, come and see me when you are. #line:04e1809 
+        -> Yes #line:00f9541 
+            Okay, let's go racing! #line:059f665 
+            <<set $tyreNumber to "1">>
+            <<change_tyres MyYarnCommands>>
+            <<wait 10>>
+            <<set $tyreNumber to "2">>
+            <<change_tyres MyYarnCommands>>
+    
+    <<elseif $numberOfStops is "2">>
+    The current strategy is a 2 stop race, starting on {$tyreChoice1}, then moving to {$tyreChoice2} and finishing with {$tryeChoice3}. #line:033be91 
+    Do you want to make changes? #line:0cb192f 
+    -> Yes #line:04ee150 
+       <<set $strategySelected to false>>
+       <<jump Strategy>>
+    -> No #line:012296c 
+        Okay, are we ready to start? #line:0016fb4 
+        -> Not yet #line:0be75fb 
+            No problem, just come back to me when you're good to go. #line:0655a8d 
+        -> I'm ready #line:05bb680 
+            Okay, let's go racing! #line:0463174 
+            <<set $tyreNumber to "1">>
+            <<change_tyres MyYarnCommands>>
+            <<wait 10>>
+            <<set $tyreNumber to "2">>
+            <<change_tyres MyYarnCommands>>
+            <<wait 10>>
+            <<set $tyreNumber to "3">>
+            <<change_tyres MyYarnCommands>>
+
+
+            //At this point, we can run a command which initiates the start
+            //Values of numberOfStops and the tyreChoices can be passed to program
+            //can have AI controlled player car...
+            //With wheel colour set to red/yellow/white...
+            //Car can do X laps then come to the garage to change tyres (colour change)
+            //Simple UI? Current tyre , number of stops, laps completed
+            //Current tyre could impact speed multiplier of lap (pathfinding), but require shorter stint. 
+            //Could even add simple deg to tyres
+            //Number of total laps = 20.. if hard soft selected... stint 1 = 75% distance... etc
+            //Can use gokarts unity project? add a garage for boxing
+            //Post race reteleportation . new scene with different npc
+            //can run more dialogue to get race time
+    <<endif>>
+
+<<endif>>
+
+
+//before starting, select strat from npc, select race distance from npc2
+//Normal lap pathfinding, outlap pathfinding , pit cycle
+//+1 lap added every time pass start/finish
+//play crowd cheer audio when race starts
+
+===

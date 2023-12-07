@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9371acadf0e7a7d4a800ebfe14820ec9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - yarnInMemoryVariableStorage: {instanceID: 0}
+  - soft: {fileID: 2100000, guid: 523a04b4d1a02764481283b2f0a6756f, type: 2}
+  - medium: {fileID: 2100000, guid: ea5574ec829c80a478ce61d1f212ff44, type: 2}
+  - hard: {fileID: 2100000, guid: 523a04b4d1a02764481283b2f0a6756f, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
