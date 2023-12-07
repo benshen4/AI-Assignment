@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90d034a0f22f6f47af102b774b91b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Director
   talkToNode: RaceDirector
   scriptToLoad: {fileID: 7545569452688597077, guid: 635f928bd9d2e74499254ab7eb2eccde,
     type: 3}
@@ -581,12 +581,14 @@ MonoBehaviour:
   yarnInMemoryVariableStorage: {fileID: 1290606833}
   soft: {fileID: 2100000, guid: 523a04b4d1a02764481283b2f0a6756f, type: 2}
   medium: {fileID: 2100000, guid: ea5574ec829c80a478ce61d1f212ff44, type: 2}
-  hard: {fileID: 2100000, guid: 523a04b4d1a02764481283b2f0a6756f, type: 2}
+  hard: {fileID: 2100000, guid: 8d82c14bf1577bb4db10777b2ae6ce59, type: 2}
   Tyres:
   - {fileID: 292552594}
   - {fileID: 1643654432}
   - {fileID: 1745091150}
   - {fileID: 886203873}
+  pitstop1Lap: 0
+  pitstop2Lap: 0
 --- !u!1 &518489295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90d034a0f22f6f47af102b774b91b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Manager
   talkToNode: RaceManager
   scriptToLoad: {fileID: 7545569452688597077, guid: 635f928bd9d2e74499254ab7eb2eccde,
     type: 3}

@@ -86,4 +86,77 @@ public class MyYarnCommands : MonoBehaviour
             Debug.LogError("error: could not find tyre choice");
         }
     }
+
+
+    public double pitstop1Lap;
+    public double pitstop2Lap;
+
+
+
+    [YarnCommand("start_Race")]
+    public void startRace()
+    {
+
+        float raceLength;
+        yarnInMemoryVariableStorage.TryGetValue("$raceLength", out raceLength);
+
+        string raceStops;
+        yarnInMemoryVariableStorage.TryGetValue("$numberOfStops", out raceStops);
+
+        if (raceStops == "1")
+        {
+            pitstop1Lap = Math.Round(raceLength / 2);
+            string tyreChoice = "";
+            yarnInMemoryVariableStorage.TryGetValue("$tyreChoice1", out tyreChoice);
+            if (tyreChoice == "softs")
+            {
+                pitstop1Lap = Math.Round(pitstop1Lap - (0.2*raceLength));
+            }
+            if (tyreChoice == "hards")
+            {
+                pitstop1Lap = Math.Round(pitstop1Lap + (0.2*raceLength));
+            }
+        }
+
+        else if (raceStops == "2")
+        {
+            pitstop1Lap = Math.Round(raceLength / 3);
+            string tyreChoice1 = "";
+            yarnInMemoryVariableStorage.TryGetValue("$tyreChoice1", out tyreChoice1);
+            if (tyreChoice1 == "softs")
+            {
+                pitstop1Lap = Math.Round(pitstop1Lap - (0.1 * raceLength));
+            }
+            if (tyreChoice1 == "hards")
+            {
+                pitstop1Lap = Math.Round(pitstop1Lap + (0.1 * raceLength));
+            }
+
+            //pitstop2Lap = Math.Round(raceLength / 1.5);
+            //Debug.Log(pitstop2Lap);
+            string tyreChoice2 = "";
+            yarnInMemoryVariableStorage.TryGetValue("$tyreChoice2", out tyreChoice2);
+            if (tyreChoice2 == "softs")
+            {
+                //pitstop2Lap = Math.Round(pitstop2Lap - (0.1 * raceLength));
+                pitstop2Lap = Math.Round(pitstop1Lap + (0.1 * raceLength));
+            }
+            else if (tyreChoice2 == "mediums")
+            {
+                pitstop2Lap = Math.Round(pitstop1Lap + (0.2 * raceLength));
+            }
+            else
+            {
+                pitstop2Lap = Math.Round(pitstop1Lap + (0.3*raceLength));
+            }
+        }
+
+        Debug.Log(pitstop1Lap);
+        Debug.Log(pitstop2Lap);
+
+    }
+
+
+
+
 }

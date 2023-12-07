@@ -270,16 +270,16 @@ tags:
 
 <<if $raceSelected is false>>
 
-So, how long do we want to race for? We can do either a 10, 15 or 20 lap race. #line:0f412db 
--> 10 sounds good #line:08023f4 
+So, how long do we want to race for? We can do either a 15, 20 or 25 lap race. #line:0f412db 
+-> 15 sounds good #line:08023f4 
     Short and sweet, no problem. #line:03820bf 
-    <<set $raceLength to 10>>
--> Let's go with 15 #line:03d9d3d 
-    Fifteen it is. #line:036606d 
     <<set $raceLength to 15>>
--> I'm feeling 20 laps #line:0b90df8 
-    You're the boss. #line:011eed5 
+-> Let's go with 20 #line:03d9d3d 
+    Twenty it is. #line:036606d 
     <<set $raceLength to 20>>
+-> I'm feeling 25 laps #line:0b90df8 
+    You're the boss. #line:011eed5 
+    <<set $raceLength to 25>>
 
 <<set $raceSelected to true>>
 
@@ -309,7 +309,9 @@ tags:
 Looks like we're all set up, are you ready to get this show started? #line:0e97e8b 
 -> Yeah, let's race! #line:012b85b 
     Let's do this! #line:0ee163d 
-    //race start procedure...
+    <<start_Race MyYarnCommands>>
+    <<set $tyreNumber to "1">>
+    <<change_tyres MyYarnCommands>>
 -> Not just yet. #line:077b2fb 
     No problem, just return here when you're ready. #line:0dd2fed 
 
