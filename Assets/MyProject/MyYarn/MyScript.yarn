@@ -8,6 +8,18 @@ tags:
 <<declare $tryeChoice3 = "" as string>>
 <<declare $tyreNumber = "" as string>>
 
+<<declare $raceSelected = false>>
+<<declare $raceLength = 0 as number>>
+
+
+<<declare $talkedToNPC1 = false>>
+<<declare $talkedToNPC2 = false>>
+<<declare $talkedToNPC3 = false>>
+<<declare $talkedToNPC4 = false>>
+
+<<declare $raceOver = false>>
+
+
 
 //We can have a 1st NPC, which tells you to go to 2nd NPC to pick strategy
 //Strategy guy should say to come back and see me to get started, after picking strategy
@@ -191,16 +203,17 @@ It's time to choose are strategy! Are you thinking of a 1 stop or a 2 stop? #lin
        <<set $strategySelected to false>>
        <<jump Strategy>>
     -> No #line:0b866ad 
-        Are you ready to start the race? #line:0d08c8b 
-        -> No #line:0ac50aa 
-            No problem, come and see me when you are. #line:04e1809 
-        -> Yes #line:00f9541 
-            Okay, let's go racing! #line:059f665 
-            <<set $tyreNumber to "1">>
-            <<change_tyres MyYarnCommands>>
-            <<wait 10>>
-            <<set $tyreNumber to "2">>
-            <<change_tyres MyYarnCommands>>
+        Okay, when you're ready go and talk to the race director to start racing. #line:02a312d 
+//        Are you ready to start the race? #line:0d08c8b 
+//        -> No #line:0ac50aa 
+//            No problem, come and see me when you are. #line:04e1809 
+//        -> Yes #line:00f9541 
+//            Okay, let's go racing! #line:059f665 
+//           <<set $tyreNumber to "1">>
+//            <<change_tyres MyYarnCommands>>
+//            <<wait 10>>
+//            <<set $tyreNumber to "2">>
+//            <<change_tyres MyYarnCommands>>
     
     <<elseif $numberOfStops is "2">>
     The current strategy is a 2 stop race, starting on {$tyreChoice1}, then moving to {$tyreChoice2} and finishing with {$tryeChoice3}. #line:033be91 
@@ -209,19 +222,21 @@ It's time to choose are strategy! Are you thinking of a 1 stop or a 2 stop? #lin
        <<set $strategySelected to false>>
        <<jump Strategy>>
     -> No #line:012296c 
-        Okay, are we ready to start? #line:0016fb4 
-        -> Not yet #line:0be75fb 
-            No problem, just come back to me when you're good to go. #line:0655a8d 
-        -> I'm ready #line:05bb680 
-            Okay, let's go racing! #line:0463174 
-            <<set $tyreNumber to "1">>
-            <<change_tyres MyYarnCommands>>
-            <<wait 10>>
-            <<set $tyreNumber to "2">>
-            <<change_tyres MyYarnCommands>>
-            <<wait 10>>
-            <<set $tyreNumber to "3">>
-            <<change_tyres MyYarnCommands>>
+        Okay, when you're ready go and talk to the race director to start racing. #line:045b831 
+
+//        Okay, are we ready to start? #line:0016fb4 
+//        -> Not yet #line:0be75fb 
+//            No problem, just come back to me when you're good to go. #line:0655a8d 
+//        -> I'm ready #line:05bb680 
+//            Okay, let's go racing! #line:0463174 
+//            <<set $tyreNumber to "1">>
+//            <<change_tyres MyYarnCommands>>
+//            <<wait 10>>
+//            <<set $tyreNumber to "2">>
+//            <<change_tyres MyYarnCommands>>
+//            <<wait 10>>
+//            <<set $tyreNumber to "3">>
+//            <<change_tyres MyYarnCommands>>
 
 
             //At this point, we can run a command which initiates the start
@@ -247,3 +262,63 @@ It's time to choose are strategy! Are you thinking of a 1 stop or a 2 stop? #lin
 //play crowd cheer audio when race starts
 
 ===
+
+
+title:RaceManager
+tags:
+---
+
+<<if $raceSelected is false>>
+
+So, how long do we want to race for? We can do either a 10, 15 or 20 lap race. #line:0f412db 
+-> 10 sounds good #line:08023f4 
+    Short and sweet, no problem. #line:03820bf 
+    <<set $raceLength to 10>>
+-> Let's go with 15 #line:03d9d3d 
+    Fifteen it is. #line:036606d 
+    <<set $raceLength to 15>>
+-> I'm feeling 20 laps #line:0b90df8 
+    You're the boss. #line:011eed5 
+    <<set $raceLength to 20>>
+
+<<set $raceSelected to true>>
+
+<<else>>
+
+We're currently on for a {$raceLength} lap race. Are you happy with this? #line:0932667 
+-> Yes #line:0f432ef 
+    Okay, if you've spoken to the strategist then you can start the race by speaking to the director. #line:09ba1c1 
+-> No #line:05671de 
+    That's fine, we can still make changes. #line:0650dca 
+    <<set $raceSelected to false>>
+    <<jump RaceManager>>
+
+<<endif>>
+
+===
+
+
+
+
+title:RaceDirector
+tags:
+---
+
+<<if $raceSelected is true and $strategySelected is true>>
+
+Looks like we're all set up, are you ready to get this show started? #line:0e97e8b 
+-> Yeah, let's race! #line:012b85b 
+    Let's do this! #line:0ee163d 
+    //race start procedure...
+-> Not just yet. #line:077b2fb 
+    No problem, just return here when you're ready. #line:0dd2fed 
+
+<<else>>
+
+Before we can start the race, you must first speak with the race strategist and race manager, and select a strategy and race type. #line:0016c8f 
+
+<<endif>>
+
+
+===
+
