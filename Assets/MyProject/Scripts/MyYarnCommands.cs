@@ -13,6 +13,8 @@ public class MyYarnCommands : MonoBehaviour
 
     public GameObject[] Tyres;
 
+    public bool raceStarted;
+
 
 
 
@@ -89,7 +91,8 @@ public class MyYarnCommands : MonoBehaviour
 
 
     public double pitstop1Lap;
-    public double pitstop2Lap;
+    public double pitstop2Lap = 30;
+    public float raceLength;
 
 
 
@@ -97,7 +100,7 @@ public class MyYarnCommands : MonoBehaviour
     public void startRace()
     {
 
-        float raceLength;
+        //float raceLength;
         yarnInMemoryVariableStorage.TryGetValue("$raceLength", out raceLength);
 
         string raceStops;
@@ -132,13 +135,11 @@ public class MyYarnCommands : MonoBehaviour
                 pitstop1Lap = Math.Round(pitstop1Lap + (0.1 * raceLength));
             }
 
-            //pitstop2Lap = Math.Round(raceLength / 1.5);
-            //Debug.Log(pitstop2Lap);
+
             string tyreChoice2 = "";
             yarnInMemoryVariableStorage.TryGetValue("$tyreChoice2", out tyreChoice2);
             if (tyreChoice2 == "softs")
             {
-                //pitstop2Lap = Math.Round(pitstop2Lap - (0.1 * raceLength));
                 pitstop2Lap = Math.Round(pitstop1Lap + (0.1 * raceLength));
             }
             else if (tyreChoice2 == "mediums")
@@ -153,6 +154,8 @@ public class MyYarnCommands : MonoBehaviour
 
         Debug.Log(pitstop1Lap);
         Debug.Log(pitstop2Lap);
+
+        raceStarted = true;
 
     }
 

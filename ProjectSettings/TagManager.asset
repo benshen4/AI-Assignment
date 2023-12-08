@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Dialogue Canvas
+  - NPC
+  - RLT1
+  - RLT2
+  - RLT3
+  - RLT4
+  - RLT5
+  - RLT6
+  - PLT1
+  - PLT2
+  - PLT3
   layers:
   - Default
   - TransparentFX

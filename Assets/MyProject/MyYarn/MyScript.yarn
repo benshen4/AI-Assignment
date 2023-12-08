@@ -290,7 +290,7 @@ We're currently on for a {$raceLength} lap race. Are you happy with this? #line:
     Okay, if you've spoken to the strategist then you can start the race by speaking to the director. #line:09ba1c1 
 -> No #line:05671de 
     That's fine, we can still make changes. #line:0650dca 
-    <<set $raceSelected to false>>
+    <<set $raceOver to true>>
     <<jump RaceManager>>
 
 <<endif>>
@@ -312,6 +312,7 @@ Looks like we're all set up, are you ready to get this show started? #line:0e97e
     <<start_Race MyYarnCommands>>
     <<set $tyreNumber to "1">>
     <<change_tyres MyYarnCommands>>
+    <<set $raceStarted to true>>
 -> Not just yet. #line:077b2fb 
     No problem, just return here when you're ready. #line:0dd2fed 
 
