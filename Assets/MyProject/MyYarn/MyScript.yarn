@@ -306,19 +306,19 @@ tags:
 
 <<if $raceSelected is true and $strategySelected is true>>
 
-Looks like we're all set up, are you ready to get this show started? #line:0e97e8b 
+Looks like we're all set up, are you ready to get this show started? #line:Director_Line1 
 -> Yeah, let's race! #line:012b85b 
-    Let's do this! #line:0ee163d 
+    Let's do this! #line:Director_Line2 
     <<start_Race MyYarnCommands>>
     <<set $tyreNumber to "1">>
     <<change_tyres MyYarnCommands>>
     <<set $raceStarted to true>>
 -> Not just yet. #line:077b2fb 
-    No problem, just return here when you're ready. #line:0dd2fed 
+    No problem, just return here when you're ready. #line:Director_Line3
 
 <<else>>
 
-Before we can start the race, you must first speak with the race strategist and race manager, and select a strategy and race type. #line:0016c8f 
+Before we can start the race, you must first speak with the race strategist and race manager, and select a strategy and race type. #line:Director_Line4 
 
 <<endif>>
 

@@ -57,10 +57,6 @@ public class CarController : MonoBehaviour
 
         if (yarnCommands.raceStarted == true && currentLap <= yarnCommands.raceLength)
         {
-            string test;
-            yarnInMemoryVariableStorage.TryGetValue("$tyreChoice3", out test);
-            Debug.Log(test);
-
             transform.LookAt(currentTarget.transform.position);
             transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, currentSpeed * Time.deltaTime);
         }
